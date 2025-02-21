@@ -1,0 +1,26 @@
+{
+  "name": "express-auth-with-password-reset",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc -b && node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pooja-solaikannu/express-auth-with-password-reset.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pooja-solaikannu/express-auth-with-password-reset/issues"
+  },
+  "homepage": "https://github.com/pooja-solaikannu/express-auth-with-password-reset#readme",
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "express": "^4.21.2",
+    "typescript": "^5.7.3"
+  }
+}
