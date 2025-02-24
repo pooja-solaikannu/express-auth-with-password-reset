@@ -1,5 +1,4 @@
 # express-auth-with-password-reset
-
 **Todo**
 
 1. create a react based frontend
@@ -7,8 +6,10 @@
 3. login page can remain the same
 4. forget password page should look like 
 
-5. add set new password screen with two fields
+![reset-password-using-otp](https://github.com/user-attachments/assets/f6029c01-b6a1-49b7-b801-6095fdb780f1)
+
+6. add set new password screen with two fields
     - new password
     - confirm password
-6. perform zod verification and modify the entry in db
-7. Sucessful insertion should redirect to login
+7. perform zod verification and modify the entry in db
+8. Sucessful insertion should redirect to login
