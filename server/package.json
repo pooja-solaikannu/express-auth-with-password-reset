@@ -20,7 +20,9 @@
   "homepage": "https://github.com/pooja-solaikannu/express-auth-with-password-reset#readme",
   "dependencies": {
     "@types/express": "^5.0.0",
+    "@types/mongoose": "^5.11.96",
     "express": "^4.21.2",
+    "mongoose": "^8.10.1",
     "typescript": "^5.7.3"
   }
 }
