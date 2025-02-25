@@ -1,8 +1,10 @@
 import express from 'express'
 import { UserModel, OPTStorageModel } from './db'
+import cors from "cors"
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 
 app.get("/", (req, res) => {
@@ -39,6 +41,13 @@ app.post("/sign-in", async (req, res) => {
     const email = req.body.email
     const password = req.body.password
 
+    if(!email || !password){
+        res.status(403).json({
+            message: "Email and Password is required"
+        })
+        return
+    }
+
     const userFound = await UserModel.findOne({
         email: email,
         password: password
@@ -52,7 +61,7 @@ app.post("/sign-in", async (req, res) => {
     }
 
     res.json({
-        message: `${username} successfully logged in`
+        message: `${userFound.username} successfully logged in`
     })
 })
 
@@ -64,6 +73,7 @@ app.post("/generate-opt", async (req, res) => {
         res.status(404).json({
             message: "Email is required"
         })
+        return
     }
     
     const userFound = await UserModel.findOne({
@@ -74,6 +84,7 @@ app.post("/generate-opt", async (req, res) => {
         res.status(404).json({
             message: `${email} is not registered`
         })
+        return
     }
 
     // generate OTP
@@ -129,6 +140,7 @@ app.post("/update-password", async (req, res) => {
         res.status(403).json({
             message: "Email and New password is required"
         })
+        return
     }
 
     // zod based password syntax verification
