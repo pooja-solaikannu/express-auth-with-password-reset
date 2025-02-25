@@ -79,8 +79,6 @@ app.post("/generate-opt", async (req, res) => {
     // generate OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString(); 
 
-    // create new element in otp storage
-
     await OPTStorageModel.create({
         email: email,
         otp: otp
@@ -122,15 +120,33 @@ app.post("/verify-otp", async (req, res) => {
     })
 })
 
-app.post("/update-password", (req, res) => {
+app.post("/update-password", async (req, res) => {
 
     const email = req.body.email
     const newPassword = req.body.newpassword
 
-    // update password in UserModel
+    if(!email || !newPassword) {
+        res.status(403).json({
+            message: "Email and New password is required"
+        })
+    }
+
+    // zod based password syntax verification
+
+    const userUpdated = await UserModel.findOneAndUpdate(
+        {email: email},
+        {$set: {password: newPassword}}
+    )
+
+    if(!userUpdated){
+        res.status(500).json({
+            message: `Could not update password for ${email}`
+        })
+        return
+    }
 
     res.status(200).json({
-        message: "Password updated sucessfully"
+        message: `Password updated sucessfully for ${email}`
     })
 })
 
