@@ -1,18 +1,23 @@
-import './App.css'
-import { LoginCard } from './components/LoginCard'
-import { ResetPassword } from './components/ResetPassword'
-import { RecoverPasswordCard } from './components/RecoverPasswordCard'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import Login from "./pages/Login"
+import RecoverPassword from "./pages/RecoverPassword"
+import ResetPassword from "./pages/ResetPassword"
+
 
 function App() {
 
   return (
     <>
-    <div className='w-screen h-screen flex justify-center items-center'>
-      <LoginCard />
-      <RecoverPasswordCard />
-      <ResetPassword />
-      
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/recover-password" element={<RecoverPassword />}/>
+          <Route path="/reset-password" element={<ResetPassword />}/>
+
+        </Routes>
+      </BrowserRouter>
 
     </>
   )

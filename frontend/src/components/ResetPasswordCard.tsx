@@ -1,8 +1,8 @@
 import "./ResetPasswordCard.css"
 
-export function ResetPassword() {
+export function ResetPasswordCard() {
     return(
-        <div className="flex flex-col w-70 h-70 justify-center items-center gap-4 border">
+        <div className="flex flex-col w-70 h-70 justify-center items-center gap-4 border rounded-md">
             <h3>Reset Password</h3>
             <input className="h-8 border rounded-sm" type="text" placeholder="Old Password"></input>
             <input className="h-8 border rounded-sm" type="text" placeholder="New Password"></input>
