@@ -12,6 +12,7 @@
     - new password
     - confirm password
 7. perform zod verification and modify the entry in db - pending
-8. Sucessful insertion should redirect to login - pending
+8. Sucessful insertion should redirect to login - done
 9. change the generate-otp endpoint to do findoneandupdate query with upsert = true - done
 10. Delete endpoint to remove the generated otp on successful verification of OTP - pending
+11. Work on front end error message section and home page section

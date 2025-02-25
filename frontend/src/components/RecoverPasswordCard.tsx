@@ -29,7 +29,7 @@ export function RecoverPasswordCard() {
                 email: emailRef.current?.value,
                 otp: otpRef.current?.value
             })
-            navigate("/reset-password")
+            navigate("/reset-password", {state: {email: emailRef.current?.value}})
         } catch (err: any) {
             setErrorState(true)
             setErrorMessage(err.response.data.message)
