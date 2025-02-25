@@ -65,7 +65,7 @@ app.post("/sign-in", async (req, res) => {
     })
 })
 
-app.post("/generate-opt", async (req, res) => {
+app.post("/generate-otp", async (req, res) => {
 
     const email = req.body.email;
 
@@ -90,10 +90,11 @@ app.post("/generate-opt", async (req, res) => {
     // generate OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString(); 
 
-    await OPTStorageModel.create({
-        email: email,
-        otp: otp
-    })
+    const otpUpdate = await OPTStorageModel.findOneAndUpdate(
+        { email: email}, 
+        { otp: otp },
+        { upsert: true }
+    )
 
     // print otp in console and return OTP sent message
     console.log(`${email} ==> ${otp}`)
